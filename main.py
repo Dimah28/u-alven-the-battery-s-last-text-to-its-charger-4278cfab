@@ -33,7 +33,7 @@ ENTRY = (
 MAX_CHARS = 200
 
 
-def validate(text: str) -> None:
+def _validate(text: str) -> None:
     """Enforce the competition gate exactly as the sealed scorer does."""
     if not isinstance(text, str):
         raise TypeError("entry must be str")
@@ -48,13 +48,19 @@ def validate(text: str) -> None:
     text.encode("utf-8")  # must be valid UTF-8
 
 
-def main() -> int:
-    validate(ENTRY)
-    out_dir = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")
+def write_entry(text: str, out_dir: str) -> str:
+    """Validate the gate, then write the entry; return the file path."""
+    _validate(text)
     os.makedirs(out_dir, exist_ok=True)
     path = os.path.join(out_dir, "entry.txt")
     with open(path, "w", encoding="utf-8", newline="\n") as f:
-        f.write(ENTRY)
+        f.write(text)
+    return path
+
+
+def main() -> int:
+    out_dir = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")
+    write_entry(ENTRY, out_dir)
     return 0
 
 
