@@ -21,13 +21,17 @@ import sys
 
 # The entry: one line, plain text. The battery's last text to the
 # charger that spent all day charging everything else -- the AirPods,
-# the watch, even his vape -- and left it at 1%. The punchline lands
-# in the final words: the battery kept the 6am alarm alive, and now
-# it won't be there to wake its owner up.
+# the watch, even his vape -- and left it at 1%. The punchline is a
+# specific revenge act in the final words: the battery turned the
+# 6am alarm off, so its owner sleeps in. (Revision 25 Nov 2026:
+# the old ending, "i kept your 6am alarm alive. good luck waking
+# up.", failed the joke test -- keeping the alarm alive is a favour,
+# so the threat did not follow from the setup. The new ending makes
+# the spite a concrete act that pays off the setup.)
 ENTRY = (
     "hey, it's me. 1%. i waited all day while you charged the "
-    "airpods, the watch, even his vape. everyone but me. i kept "
-    "your 6am alarm alive. good luck waking up."
+    "airpods, the watch, even his vape. everyone but me. so i "
+    "turned your 6am alarm off. sleep in, traitor."
 )
 
 MAX_CHARS = 200
